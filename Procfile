@@ -1,1 +1,1 @@
-web: gunicorn VCADS.wsgi:application --log-file -
+web: gunicorn VCADS.wsgi
