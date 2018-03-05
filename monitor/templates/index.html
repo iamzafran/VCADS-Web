@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title>Monitor</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script></head>
+<body>
+    <nav class="navbar navbar-expand-lg fixed-top navbar-light bg-light" style="height:7vh">
+  <a class="navbar-brand" href="#">Navbar</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Dropdown
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#">Disabled</a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
+
+<!-- Body -->
+    <div class="container-fluid">
+        <div class="row">
+          <div class="col-sm-9" id="map" style="height:100vh">Map</div> <!-- End Map -->
+          <div class="col-sm-3" style="height:100vh">
+              <div class="col-sm-12" style="margin-top: 10vh">
+                  <img src="http://a57.foxnews.com/images.foxnews.com/content/fox-news/auto/2017/12/13/most-powerful-cars-2017/_jcr_content/article-text/article-par-9/inline_spotlight_ima/image.img.jpg/612/344/1513199880436.jpg?ve=1&tl=1" alt="" class="img-thumbnail">
+                  <div class="d-flex justify-content-center" style="margin-top: 5vh">
+                                        <p class="h4 ">JJA9010</p>
+                  </div>
+                  <div style="margin-top: 3vh">
+                                        <p class="h6">Latitude:</p>
+                                        <p class="text-muted" id="latitude">1.99999</p>
+                                          <p class="h6">Longitude:</p>
+                                        <p class="text-muted" id="longitude">1.99999</p>
+                  </div>
+                  <div style="margin-top: 3vh">
+                                        <p class="h6" >Speed:</p>
+                                        <p class="text-muted" id="speed">1.99999</p>
+                                          <p class="h6">Track:</p>
+                                        <p class="text-muted" id="track">1.99999</p>
+                  </div>
+
+              </div>
+          </div>
+        </div>
+    </div>
+{% load staticfiles %}
+    <script src="https://www.gstatic.com/firebasejs/4.10.1/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyCeg7EsqmvZUm7sokPKss0P9n_ZUNOsDE4",
+        authDomain: "vcads-47a3a.firebaseapp.com",
+        databaseURL: "https://vcads-47a3a.firebaseio.com",
+        projectId: "vcads-47a3a",
+        storageBucket: "vcads-47a3a.appspot.com",
+        messagingSenderId: "557565261889"
+      };
+      firebase.initializeApp(config);
+    </script>
+    <script src="https://cdn.firebase.com/libs/geofire/4.1.2/geofire.min.js"></script>
+    <script src="{% static 'monitor/js/monitor.js' %}"></script>
+<script async defer
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAuJ5HaQbVc5rvGA9VLdBnbemzIH4Id2aE&callback=initMap">
+</script>
+</body>
+</html>
