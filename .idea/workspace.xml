@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2b20c18e-88f6-49b9-8f33-5b6039cd7cd8" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/VCADS/settings.py" afterPath="$PROJECT_DIR$/VCADS/settings.py" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -118,6 +118,11 @@
           <expand>
             <path>
               <item name="VCADS" type="b2602c69:ProjectViewProjectNode" />
+              <item name="VCADS" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="VCADS" type="b2602c69:ProjectViewProjectNode" />
+              <item name="VCADS" type="462c0819:PsiDirectoryNode" />
               <item name="VCADS" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
