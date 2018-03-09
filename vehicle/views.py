@@ -32,11 +32,12 @@ class AddVehicleToUser(APIView):
         uuid = data['uuid']
         model = int(data['model'])
         license_plate = data['license_plate']
+        key = data['key']
 
         vehicle_model = VehicleModel.objects.get(id=model)
         user = User.objects.get(uuid=uuid)
 
-        v = Vehicle(vehicle_model=vehicle_model, user=user, license_plate=license_plate)
+        v = Vehicle(vehicle_model=vehicle_model, user=user, license_plate=license_plate, key=key)
         v.save()
 
         return HttpResponse("Vehicle added to user")
