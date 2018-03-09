@@ -1,6 +1,8 @@
 from django.conf.urls import url
-from . import views
+from .views import AddUser, index
+
 
 urlpatterns = [
-    url(r'^$', views.index, name='user_view')
+    url(r'^$', index, name='user_view'),
+    url(r'^api/adduser$', AddUser.as_view(), name='add_user_view')
 ]
