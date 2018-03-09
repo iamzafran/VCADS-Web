@@ -17,7 +17,8 @@ class AddUser(APIView):
         return HttpResponse("add user")
 
     def post(self, request):
-        userUUID = request.data
+        data = request.data
+        userUUID = data['uuid']
         u = User(uuid=userUUID)
         u.save()
         return HttpResponse("Ok")
