@@ -12,12 +12,10 @@ def index(request):
     return "user"
 
 
-class VehicleModelAutoComplete(APIView):
+def get_vehicle_models(request, model):
+    query = model
+    print(query)
+    vehicle_model = VehicleModel.objects.filter(vehicle_model__icontains=query)
+    serializer = VehicleModelSerializer(vehicle_model, many=True)
 
-    def get(self, request):
-        print(request.data)
-        string = "per"
-        vehicle_model = VehicleModel.objects.filter(vehicle_model__icontains=string)
-        serializer = VehicleModelSerializer(vehicle_model, many=True)
-
-        return Response(serializer.data)
+    return JsonResponse(serializer.data, safe=False)
