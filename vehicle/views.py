@@ -3,7 +3,7 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from django.http.response import HttpResponse
 from django.http.response import JsonResponse
-from .models import VehicleModel
+from .models import VehicleModel, Vehicle
 from user.models import User
 from .serializers import VehicleModelSerializer
 # Create your views here.
@@ -31,8 +31,12 @@ class AddVehicleToUser(APIView):
         data = request.data
         uuid = data['uuid']
         model = int(data['model'])
+        license_plate = data['license_plate']
 
         vehicle_model = VehicleModel.objects.get(id=model)
         user = User.objects.get(uuid=uuid)
-        vehicle_model.user.add(user)
+
+        v = Vehicle(vehicle_model=vehicle_model, user=user, license_plate=license_plate)
+        v.save()
+
         return HttpResponse("Vehicle added to user")
