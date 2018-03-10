@@ -15,14 +15,16 @@ class VehicleMakeSerializer(serializers.ModelSerializer):
 
 
 class VehicleModelSerializer(serializers.ModelSerializer):
+    vehicle_type = VehicleTypeSerializer()
+    vehicle_make = VehicleMakeSerializer()
+
     class Meta:
         model = VehicleModel
         fields = '__all__'
 
 
 class VehicleSerializer(serializers.ModelSerializer):
-    vehicle_type = VehicleTypeSerializer()
-    vehicle_make = VehicleMakeSerializer()
+
     vehicle_model = VehicleModelSerializer()
 
     class Meta:

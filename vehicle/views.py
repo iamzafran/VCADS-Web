@@ -5,7 +5,7 @@ from django.http.response import HttpResponse
 from django.http.response import JsonResponse
 from .models import VehicleModel, Vehicle
 from user.models import User
-from .serializers import VehicleModelSerializer
+from .serializers import VehicleModelSerializer, VehicleSerializer
 # Create your views here.
 
 
@@ -41,3 +41,13 @@ class AddVehicleToUser(APIView):
         v.save()
 
         return HttpResponse("Vehicle added to user")
+
+
+def get_user_vehicle(request, uuid):
+    print(uuid)
+    u = User.objects.get(uuid=uuid)
+    v = Vehicle.objects.filter(user=u)
+
+    serializer = VehicleSerializer(v, many=True)
+    return JsonResponse(serializer.data, safe=False)
+
