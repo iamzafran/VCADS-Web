@@ -54,7 +54,7 @@ def get_user_vehicle(request, uuid):
 
 class DeleteVehicleFromUser(APIView):
 
-    def get(self):
+    def get(self, request):
         return "Delete Vehicle"
 
     def post(self, request):
