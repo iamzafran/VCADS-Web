@@ -51,3 +51,19 @@ def get_user_vehicle(request, uuid):
     serializer = VehicleSerializer(v, many=True)
     return JsonResponse(serializer.data, safe=False)
 
+
+class DeleteVehicleFromUser(APIView):
+
+    def get(self):
+        return "Delete Vehicle"
+
+    def post(self, request):
+        data = request.data
+        id = data['vehicle_id']
+
+        vehicle = Vehicle.objects.get(id=id)
+        vehicle.delete()
+
+        vehicle.save()
+
+        return HttpResponse("OK")
