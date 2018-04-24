@@ -64,6 +64,4 @@ class DeleteVehicleFromUser(APIView):
         vehicle = Vehicle.objects.get(id=id)
         vehicle.delete()
 
-        vehicle.save()
-
         return HttpResponse("OK")
