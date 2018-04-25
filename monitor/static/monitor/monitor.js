@@ -52,6 +52,8 @@ function initMap(){
                 console.log(this.position+"");
                 console.log(this.license_number+"");
 
+                var license_plate = this.license_number;
+
                 var vehicleRef = firebase.database().ref('vehicle_data/'+this.license_number);
                 var vehicleLocationRef = firebase.database().ref('vehicle_location/'+this.license_number+"/l");
 
@@ -74,6 +76,8 @@ function initMap(){
                     console.log(latitude+" ,"+longitude);
                     $('#latitude').text(latitude+"");
                     $('#longitude').text(longitude+"");
+                    $('#license_plate').text(license_plate+"");
+
 
                 });
 
