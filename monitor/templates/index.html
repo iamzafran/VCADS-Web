@@ -56,7 +56,6 @@
           <div class="col-sm-9" id="map" style="height:100vh">Map</div> <!-- End Map -->
           <div class="col-sm-3" style="height:100vh">
               <div class="col-sm-12" style="margin-top: 10vh">
-                  <img src="http://a57.foxnews.com/images.foxnews.com/content/fox-news/auto/2017/12/13/most-powerful-cars-2017/_jcr_content/article-text/article-par-9/inline_spotlight_ima/image.img.jpg/612/344/1513199880436.jpg?ve=1&tl=1" alt="" class="img-thumbnail">
                   <div class="d-flex justify-content-center" style="margin-top: 5vh">
                                         <p class="h4 ">JJA9010</p>
                   </div>
@@ -90,9 +89,12 @@
         messagingSenderId: "557565261889"
       };
       firebase.initializeApp(config);
+      firebase.auth().signInAnonymously();
+
+
     </script>
     <script src="https://cdn.firebase.com/libs/geofire/4.1.2/geofire.min.js"></script>
-    <script src="{% static 'monitor/js/monitor.js' %}"></script>
+    <script src="{% static 'monitor/monitor.js' %}"></script>
 <script async defer
   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAuJ5HaQbVc5rvGA9VLdBnbemzIH4Id2aE&callback=initMap">
 </script>

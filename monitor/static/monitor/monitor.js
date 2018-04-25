@@ -7,14 +7,27 @@ function initMap(){
           center: uluru
         });
 
+        console.log("Map");
 
-        var firebaseRef = firebase.database().ref('vehicle_location');
+        firebase.auth().onAuthStateChanged(function(user) {
+          if (user) {
+            // User is signed in.
+            var isAnonymous = user.isAnonymous;
+            var uid = user.uid;
+            console.log(isAnonymous);
+
+
+
+
+            var firebaseRef = firebase.database().ref('vehicle_location');
         var geoFire = new GeoFire(firebaseRef);
 
         var geoQuery = geoFire.query({
           center: [1.532048, 103.577093],
           radius: 100.5
         });
+
+
 
         var onKeyEnteredRegistration = geoQuery.on("key_entered", function(key, location, distance) {
             console.log(key + " entered query at " + location + " (" + distance + " km from center)");
@@ -87,6 +100,12 @@ function initMap(){
             var longitude = location[1];
             var vehicle_location = {lat: latitude, lng: longitude};
             marker.setPosition(vehicle_location);
+        });
+
+          } else {
+
+          }
+
         });
 
 
